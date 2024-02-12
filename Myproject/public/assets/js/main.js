@@ -16,12 +16,9 @@ function validateForm() {
         if(elements[i].value == ""){
             alert("Valide los datos ingresados");
             elements[i].focus();
-        
             return false;
         }
-
     }
-
 }
 /**
  * Author:DIEGO CASALLAS
@@ -34,11 +31,9 @@ function validateForm() {
  * @e is event the form
  */
 function getData(id,e) {
-
         var objForm=document.getElementById(id);
         var elements=objForm.querySelectorAll("input");
         var elementsLeng=elements.length;
-
         for(let i=0;i<elementsLeng;i++){
             let element=elements[i];
             if(element.value=="" || element.length==0){
@@ -53,7 +48,6 @@ function getData(id,e) {
         //getDataJson();
         e.preventDefault();
         return  false;
-    
     }
     //getDataJson();
 /**
@@ -68,42 +62,32 @@ function getData(id,e) {
  */
 
 function clearData(id) {
-
     var objForm=document.getElementById(id);
-
     var elements=objForm.querySelectorAll("input, select");
     var elementsLeng=elements.length;
-    
     for(let i=0;i<elementsLeng;i++){
         let element=elements[i];
         element.value = "";
     }
 }
 
-
 function formDisabled(id) {
-
     var objForm=document.getElementById(id);
     var elements=objForm.querySelectorAll("input, select");
     var elementsLeng=elements.length;
-    
     for(let i=0;i<elementsLeng;i++){
         let element=elements[i];
         element.disabled = true;
-
     }
 }
 
 function formEnable(id) {
-
     var objForm=document.getElementById(id);
     var elements=objForm.querySelectorAll("input, select");
     var elementsLeng=elements.length;
-    
     for(let i=0;i<elementsLeng;i++){
         let element=elements[i];
         element.disabled = false;
-
     }
 }
 
@@ -111,7 +95,6 @@ function formEnableEdit(id) {
     var objForm = document.getElementById(id);
     var elements = objForm.querySelectorAll("input, select");
     var elementsLeng = elements.length;
-    
     for (let i = 0; i < elementsLeng; i++) {
         let element = elements[i];
         if (element.getAttribute('name') === 'user_email') {
@@ -121,7 +104,6 @@ function formEnableEdit(id) {
         }
     }
 }
-
 
 function createUser (id) {
     clearData(id);
@@ -136,20 +118,38 @@ function editUser(id) {
 }
 
 function deleteUser(id) {
-  
-   let getConfirm=window.confirm("Seguro desea Eliminar?");
-   //console.log(getConfirm);
-   if(getConfirm){
-alert("OK DELETE");
-   }else{
+    let getConfirm=window.confirm("Seguro desea Eliminar?");
+    //console.log(getConfirm);
+    if(getConfirm){
+    alert("OK DELETE");
+    }else{
     alert("ERROR DELETE");
-   }
+    }
 }
 
 function viewUser(id) {
-    clearData(id);
-    formDisabled(id);
-    showModal();
+    // Supongamos que tienes la información que deseas mostrar almacenada en un objeto userInfo
+    var userInfo = {
+        user_email: "jose@gmail.com",
+        user_password: "1234567890",
+        user_password_repeat: "1234567890",
+        user_role: "Admin",
+        user_state: "Activo",
+        // Otros campos de información
+    };
+
+    // Llenar los campos del formulario con la información del objeto userInfo
+    var objForm = document.getElementById(id);
+    var elements = objForm.querySelectorAll("input, select");
+    var elementsLength = elements.length;
+    for (let i = 0; i < elementsLength; i++) {
+        let element = elements[i];
+        if (userInfo.hasOwnProperty(element.name)) {
+            element.value = userInfo[element.name];
+        }
+    }
+    formDisabled(id); // Deshabilitar la edición del formulario
+    showModal(); // Mostrar el modal
 }
 
 function showModal() {
