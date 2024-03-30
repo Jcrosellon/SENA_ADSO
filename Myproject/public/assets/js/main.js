@@ -1,7 +1,7 @@
 /**
- * Author:Willian Moreno
- * Date:07/01/2024
- * Update Date:07/01/2024
+ * Author: JOSE ROSELLON
+ * Date:26/03/2024
+ * Update Date:
  * Descriptions:
  * 
  */
@@ -21,8 +21,8 @@ function validateForm() {
     }
 }
 /**
- * Author:DIEGO CASALLAS
- * Date:08/01/2024
+ * Author: JOSE ROSELLON
+ * Date:26/03/2024
  * Update Date:
  * Descriptions: This functions is for get form object and validate
  * Return:value boolean
@@ -51,8 +51,8 @@ function getData(id,e) {
     }
     //getDataJson();
 /**
- * Author:DIEGO CASALLAS
- * Date:08/01/2024
+ * Author: JOSE ROSELLON
+ * Date:26/03/2024
  * Update Date:
  * Descriptions: This functions is for get form object and validate
  * Return:value boolean
