@@ -1,17 +1,26 @@
 /**
- * Author:Willian Moreno
- * Date:07/01/2024
- * Update Date:07/01/2024
+ * Author: JOSE ROSELLON
+ * Date:30/03/2024
+ * Update Date:
  * Descriptions:
  * 
  */
+/**Variables*/
+const myModal = new bootstrap.Modal(document.getElementById("modalUser"), {});
+var objForm = null;
+var elements =null;
+var elementsLeng = 0
+
+/**********/
+getUserStatusJson();
+getUserStatusJson();
 
 /**This funtions is general for validate the form HTML */
 function validateForm() {
 /**This is the variable declarations*/
-    var objForm=document.getElementById("form_login");
-    var elements=objForm.querySelectorAll("input");
-    for(let i=0;i<elements.length;i++){
+    objForm=document.getElementById("form_login");
+    elements=objForm.querySelectorAll("input");
+    for(let i = 0; i < elements.length; i++) {
         console.log(elements[i].value);
         if(elements[i].value == ""){
             alert("Valide los datos ingresados");
@@ -21,8 +30,8 @@ function validateForm() {
     }
 }
 /**
- * Author:DIEGO CASALLAS
- * Date:08/01/2024
+ * Author: JOSE ROSELLON
+ * Date:30/03/2024
  * Update Date:
  * Descriptions: This functions is for get form object and validate
  * Return:value boolean
@@ -30,93 +39,176 @@ function validateForm() {
  * @id is identification the form
  * @e is event the form
  */
-function getData(id,e) {
-        var objForm=document.getElementById(id);
-        var elements=objForm.querySelectorAll("input");
-        var elementsLeng=elements.length;
-        for(let i=0;i<elementsLeng;i++){
-            let element=elements[i];
-            if(element.value=="" || element.length==0){
-                alert("Error: Validate Element");
-                element.classList.add('errorInput');
-                e.preventDefault();
-                return false;
-            }else{
-                element.classList.remove('errorInput');
-            }
-        }
-        //getDataJson();
-        e.preventDefault();
-        return  false;
+function getData(id, e) {
+
+    if (validateForm(id)) {
+        getDataForm(id);
     }
-    //getDataJson();
+
+
+
+    e.preventDefault();
+    return false;
+}
+function validateForm(id) {
+    objForm = document.getElementById(id);
+    elements = objForm.querySelectorAll("input");
+    elementsLeng = elements.length;
+
+    for (let i = 0; i < elementsLeng; i++) {
+        let element = elements[i];
+        if (element.value == "" || element.length == 0) {
+            alert("Error: Validate Element");
+            element.classList.add('errorInput');
+            return false;
+        } else {
+            element.classList.remove('errorInput');
+        }
+    }
+    return true;
+}
+
+function getDataForm(id) {
+    objForm = document.getElementById(id);
+    elementsInput = objForm.querySelectorAll("input");
+    elementsSelect = objForm.querySelectorAll("select");
+    elementsLeng = elementsInput.length;
+    elementsLengSelect = elementsSelect.length;
+    for (let i = 0; i < elementsLeng; i++) {
+        let element = elementsInput[i];
+        console.log(element.value);
+    }
+    for (let i = 0; i < elementsLengSelect; i++) {
+        let element = elementsSelect[i];
+        console.log(element.value);
+    }
+}
+
 /**
- * Author:DIEGO CASALLAS
- * Date:08/01/2024
+ * Author: JOSE ROSELLON
+ * Date:30/03/2024
  * Update Date:
- * Descriptions: This functions is for get form object and validate
- * Return:value boolean
+ * Descriptions: This functions is clearData
+ * Return:
  * Parameter: 
  * @id is identification the form
- * @e is event the form
  */
 
 function clearData(id) {
-    var objForm=document.getElementById(id);
-    var elements=objForm.querySelectorAll("input, select");
-    var elementsLeng=elements.length;
+
+    objForm = document.getElementById(id);
+    elements = objForm.querySelectorAll("input");
+    elementsLeng = elements.length;
     for(let i=0;i<elementsLeng;i++){
         let element=elements[i];
         element.value = "";
     }
 }
 
+/**
+ * Author: JOSE ROSELLON
+ * Date:30/03/2024
+ * Update Date:
+ * Descriptions: This functions is formDisabled
+ * Return:
+ * Parameter: 
+ * @id is identification the form
+
+*/
 function formDisabled(id) {
-    var objForm=document.getElementById(id);
-    var elements=objForm.querySelectorAll("input, select");
-    var elementsLeng=elements.length;
+    objForm=document.getElementById(id);
+    elements=objForm.querySelectorAll("input");
+    elementsLeng=elements.length;
     for(let i=0;i<elementsLeng;i++){
         let element=elements[i];
         element.disabled = true;
     }
 }
 
+/**
+ * Author: JOSE ROSELLON
+ * Date:30/03/2024
+ * Update Date:
+ * Descriptions: This functions is formEnable
+ * Return:
+ * Parameter: 
+ * @id is identification the form
+
+*/
 function formEnable(id) {
-    var objForm=document.getElementById(id);
-    var elements=objForm.querySelectorAll("input, select");
-    var elementsLeng=elements.length;
+    objForm=document.getElementById(id);
+    elements=objForm.querySelectorAll("input");
+    elementsLeng=elements.length;
     for(let i=0;i<elementsLeng;i++){
         let element=elements[i];
         element.disabled = false;
     }
 }
 
+/**
+ * Author: JOSE ROSELLON
+ * Date:30/03/2024
+ * Update Date:
+ * Descriptions: This functions is formEnableEdit
+ * Return:
+ * Parameter: 
+ * @id is identification the form
+
+*/
 function formEnableEdit(id) {
-    var objForm = document.getElementById(id);
-    var elements = objForm.querySelectorAll("input, select");
-    var elementsLeng = elements.length;
+    objForm = document.getElementById(id);
+    elements = objForm.querySelectorAll(".input_disabled");
+    elementsLeng = elements.length;
     for (let i = 0; i < elementsLeng; i++) {
         let element = elements[i];
-        if (element.getAttribute('name') === 'user_email') {
-            element.disabled = true; // Bloquear el campo "user_email"
-        } else {
-            element.disabled = false; // Desbloquear los demás campos
-        }
+        element.disabled = true;
     }
 }
 
+/**
+ * Author: JOSE ROSELLON
+ * Date:30/03/2024
+ * Update Date:
+ * Descriptions: This functions is createUser
+ * Return:
+ * Parameter: 
+ * @id is identification the form
+
+*/
 function createUser (id) {
     clearData(id);
     formEnable(id);
     showModal();
 }
 
-function editUser(id) {
+/**
+ * Author: JOSE ROSELLON
+ * Date:30/03/2024
+ * Update Date:
+ * Descriptions: This functions is editUser
+ * Return:
+ * Parameter: 
+ * @id is identification the form
+
+*/
+function editUser(id, idUser) {
     clearData(id); // Limpiar los datos del formulario
+    formEnable(id);
     formEnableEdit(id); // Desbloquear todos los campos excepto el campo "user_email"
     showModal(); // Mostrar el modal
+    alert("ID USER" + idUser);
 }
 
+/**
+ * Author: JOSE ROSELLON
+ * Date:30/03/2024
+ * Update Date:
+ * Descriptions: This functions is deleteUser
+ * Return:
+ * Parameter: 
+ * @id is identification the user
+
+*/
 function deleteUser(id) {
     let getConfirm=window.confirm("Seguro desea Eliminar?");
     //console.log(getConfirm);
@@ -127,38 +219,96 @@ function deleteUser(id) {
     }
 }
 
-function viewUser(id) {
-    // Supongamos que tienes la información que deseas mostrar almacenada en un objeto userInfo
-    var userInfo = {
-        user_email: "jose@gmail.com",
-        user_password: "1234567890",
-        user_password_repeat: "1234567890",
-        user_role: "Admin",
-        user_state: "Activo",
-        // Otros campos de información
-    };
+/**
+ * Author: JOSE ROSELLON
+ * Date:30/03/2024
+ * Update Date:
+ * Descriptions: This functions is deleteUser
+ * Return:
+ * Parameter: 
+ * @id is identification the form
+ */
+function viewUser(id, idUser) {
+    clearData(id);
+    formDisabled(id);
+    showModal();
+    alert("ID USER" + idUser);
+};
 
-    // Llenar los campos del formulario con la información del objeto userInfo
-    var objForm = document.getElementById(id);
-    var elements = objForm.querySelectorAll("input, select");
-    var elementsLength = elements.length;
-    for (let i = 0; i < elementsLength; i++) {
-        let element = elements[i];
-        if (userInfo.hasOwnProperty(element.name)) {
-            element.value = userInfo[element.name];
-        }
-    }
-    formDisabled(id); // Deshabilitar la edición del formulario
-    showModal(); // Mostrar el modal
-}
-
+/**
+ * Author: JOSE ROSELLON
+ * Date:30/03/2024
+ * Update Date:
+ * Descriptions: This functions is showModal
+ * Return:
+ * Parameter: 
+ * @id is identification the form
+ */
 function showModal() {
-    var myModal = new bootstrap.Modal(document.getElementById("modalUser"), {});
     myModal.show();
 }
 
+/**
+ * Author: JOSE ROSELLON
+ * Date:30/03/2024
+ * Update Date:
+ * Descriptions: This functions is hiddenModal
+ * Return:
+ * Parameter: 
+ * @id is identification the form
+ */
 function hiddenModal() {
-    var myModal = new bootstrap.Modal(document.getElementById("modalUser"), {});
     myModal.hidden();
 }
-//input_disabled
+
+function createTable(getArray) {
+    const containerTable = document.getElementById('id_table');
+    const textTable = '<table class="table">';
+    const tHead = '<thead><tr><th scope="col">#</th><th scope="col">First</th><th scope="col">Last</th><th scope="col">Handle</th></tr></thead><tbody>';
+    const textTableEnd = '</tbody></table>';
+    let rowTable = '';
+    let row = getArray.length;
+    for (let i = 0; i < row; i++) {
+        rowTable = rowTable + '<tr><th scope="row">' + getArray[i].User_id + '</th><td>' + getArray[i].User_user + '</td><td>Otto</td><td>@mdo</td></tr>';
+
+    }
+    containerTable.innerHTML = textTable + tHead + rowTable + textTableEnd;
+}
+
+function createTableArray(getArray){
+    const containerTbody = document.getElementById('idTbody');
+    var formId = "'form_login'";
+    let rowTable = '';
+    let row = getArray.length;
+    for (let i = 0; i < row; i++) {
+        rowTable = rowTable + '<tr><th scope="row">' + (i + 1) + '</th><td>' + getArray[i].User_user + '</td><td>' + getArray[i].User_password + '</td><td>' + getArray[i].User_status_name + '</td><td>' + getArray[i].Role_name + '</td><td><div class="btn-group" role="group"aria-label="Basic mixed styles example"><button type="button" onclick="viewUser(' + formId + ',' + getArray[i].User_id + ')"class="btn btn-success"><img src="../../../public/assets/img/icons/eye-fill.svg"></button><button type="button" onclick="editUser(' + formId + ',' + getArray[i].User_id + ')"class="btn btn-warning"><img src="../../../public/assets/img/icons/pencil-square.svg"></button><button type="button" onclick="deleteUser(' + formId + ',' + getArray[i].User_id + ')"class="btn btn-danger"><img src="../../../public/assets/img/icons/trash3-fill.svg"></button></div></td></tr>';
+
+    }
+    containerTbody.innerHTML = rowTable;
+}
+
+function createSelectArray(getArray){
+    const containerSelect = document.getElementById('user_state');
+
+    var optionSelect = '<option selected>Open this select menu</option>';
+    let row = getArray.length;
+    for (let i = 0; i < row; i++) {
+        optionSelect = optionSelect + '<option value="' + getArray[i].User_status_id + '">' + getArray[i].User_status_name + '</option>';
+
+    }
+    containerSelect.innerHTML = optionSelect;
+}
+
+const ONJpreload = document.getElementById('preload');
+function showPreload() {
+    OBJpreload.style.display = "block";
+}
+
+function hideenPreload() {
+    OBJpreload.style.display = "block";
+    //vonsole.log(OBJpreload);
+}
+
+
+
+// createTable();

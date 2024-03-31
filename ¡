@@ -1,0 +1,43 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch calculator
+# Your branch is up to date with 'origin/calculator'.
+#
+# No commands done.
+# Next commands to do (3 remaining commands):
+#    pick 1b36125 Mensaje de commit
+#    pick 2d62070 se corrige el error de conexión con la base de datos, from origin null has been blocked by CORS policy. se corrige la url y se cambia el query, SELECT * FROM User WHERE 1;
+# You are currently editing a commit while rebasing branch 'main' on '28a8808'.
+#
+# Changes to be committed:
+#	modified:   .DS_Store
+#	new file:   Calculadora/.DS_Store
+#	new file:   Calculadora/assets/css/styles.css
+#	new file:   Calculadora/assets/img/icons/logo.png
+#	new file:   Calculadora/assets/js/script.js
+#	new file:   Calculadora/index.html
+#	modified:   Myproject/.DS_Store
+#	new file:   Myproject/app/Config/Config.php
+#	new file:   Myproject/app/Config/Constant.php
+#	new file:   Myproject/app/Controllers/Home/Home.php
+#	new file:   Myproject/app/Controllers/Role/Role.php
+#	new file:   Myproject/app/Controllers/User/User.php
+#	new file:   Myproject/app/Controllers/User/User_.php
+#	new file:   Myproject/app/Database/apiSENA.sql
+#	new file:   Myproject/app/Database/sp.sql
+#	new file:   Myproject/app/Models/Role/RoleModel.php
+#	new file:   Myproject/app/Models/User/UserModel.php
+#	new file:   Myproject/app/Models/User/User_.php
+#	new file:   Myproject/app/System/core/ConnectDB.PHP
+#	new file:   Myproject/app/System/interface/IController.php
+#	new file:   Myproject/app/System/interface/IModel.php
+#	new file:   Myproject/app/Views/assets/css/css.php
+#	modified:   Myproject/app/Views/user/user.html
+#	new file:   Myproject/app/Views/user/user.php
+#	modified:   Myproject/public/assets/js/getDataServices.js
+#	modified:   Myproject/public/assets/js/main.js
+#	modified:   Myproject/public/index.php
+#	deleted:    SENA_ADSO
+#

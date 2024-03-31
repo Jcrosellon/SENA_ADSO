@@ -1,3 +1,17 @@
+<?php
+
+/**
+ * Author: JOSE ROSELLON
+ * Date:30/03/2024
+ * Update Date:
+ * Descriptions: this is view role
+ * 
+ */
+include("../../Controller/Role/Role.php");
+$obj=new Role();
+$roles=$obj->GetRoles();
+$log=count($roles);
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -7,7 +21,7 @@
         <title>USER</title>
         <!---Icon -->
         <link rel="icon" type="image/png"
-            href="../../../public/assets/img/logo/logo.jpg"
+            href="../../../public/assets/img/logo/logo.png"
             sizes="16x16">
         <!---Container css-->
         <!---cdn Bootstrap-->
@@ -35,11 +49,11 @@
                 }
                 .preload{
                     width: 100%;
-                    height: 100% !important;
-                    background: #8080807a;
-                    position: fixed;
-                    z-index: 2000;
-                    cursor:progress;
+  height: 100% !important;
+  background: #8080807a;
+  position: fixed;
+  z-index: 2000;
+  cursor:progress;
                 }
             </style>
         <!---End Container css-->
@@ -61,7 +75,7 @@
                 <div class="col-6 mx-auto">
                     <h3>List User</h3>
                     <!---Btn Add -->
-                    <button type="button" class="btn btn-success" 
+                    <button type="button" class="btn btn-success"
                         onclick="createUser('form_login')"
                         data-bs-toggle="modal"><img
                             src="../../../public/assets/img/icons/person-fill-add.svg"></button>
@@ -97,7 +111,7 @@
                     <!---End Table -->
                 </div>
             </div>
-        </div>    
+        </div>
 
         <!---End Container table-->
         <!--Container Modal-->
@@ -120,7 +134,8 @@
                             <div class="mb-3">
                                 <label for="user_email" class="form-label">Email
                                     address</label>
-                                <input type="email" class="form-control input_disabled"
+                                <input type="email"
+                                    class="form-control input_disabled"
                                     maxlength="50" minlength="10"
                                     name="user_email"
                                     id="user_email"
@@ -130,35 +145,43 @@
                             <div class="mb-3">
                                 <label for="user_password"
                                     class="form-label">Password</label>
-                                <input type="password" class="form-control"
+                                <input type="password"
+                                    class="form-control input_disabled"
                                     id="user_password" name="user_password"
                                     maxlength="20" minlength="10">
                             </div>
                             <div class="mb-3">
                                 <label for="user_password_repeat"
                                     class="form-label">Confirm Password</label>
-                                <input type="password" class="form-control input_disabled"
-                                    id="user_password_repeat" name="user_password_repeat"
+                                <input type="password"
+                                    class="form-control input_disabled"
+                                    id="user_password_repeat"
+                                    name="user_password_repeat"
                                     maxlength="20" minlength="10">
                             </div>
                             <div class="mb-3">
                                 <label for="user_role"
                                     class="form-label">Rol</label>
                                 <select class="form-select"
-                                    aria-label="Default select example" name="user_role" id="user_role">
+                                    aria-label="Default select example"
+                                    name="user_role" id="user_role">
                                     <option selected>Open this select
                                         menu</option>
-                                    <option value="1">Admin</option>
-                                    <option value="2">Employed</option>
+                                        <?php
+                                            for($i=0;$i<$log;$i++){
+                                              echo('<option value="'.$roles[$i]['Role_id'].'">'.$roles[$i]['Role_name'].'</option>');
+                                            }
+                                        ?>
+                                   
                                 </select>
                             </div>
                             <div class="mb-3">
                                 <label for="user_state"
                                     class="form-label">Estado</label>
                                 <select class="form-select"
-                                    aria-label="Default select example" 
+                                    aria-label="Default select example"
                                     name="user_state" id="user_state">
-                                    
+
                                 </select>
                             </div>
 
@@ -168,11 +191,13 @@
                         <button type="button" class="btn btn-secondary"
                             data-bs-dismiss="modal">Close</button>
                         <button type="submit"
-                            class="btn btn-primary" form="form_login" >Send</button>
+                            class="btn btn-primary"
+                            form="form_login">Send</button>
                     </div>
                 </div>
             </div>
         </div>
+
         <!--Container Modal-->
         <!---Cnd  Bootstrap-->
         <script
@@ -182,7 +207,6 @@
         <!---Container javascript-->
         <script src="../../../public/assets/js/getDataServices.js"></script>
         <script src="../../../public/assets/js/main.js"></script>
-        
 
     </body>
 </html>

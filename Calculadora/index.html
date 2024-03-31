@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <!-- Agrega la CDN de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../Calculadora/assets/css/styles.css">
+    
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="calculator">
+                    <div class="header">
+                        <img src="../Calculadora/assets/img/icons/logo.png" alt="Logo" class="logo">
+                        <h1>Calculadora</h1>
+                    </div>
+                    <input type="text" id="display" readonly class="form-control">
+        <div class="keys">
+            <button class="clear lightblue" data-value="AC">AC</button>
+            <button class="clear lightblue" data-value="CE">CE</button>
+            <button class="operations lightblue" data-value="%">%</button>
+            <button class="operations yellow" data-value="/">/</button>
+            <button class="numbers red" data-value="7">7</button>
+            <button class="numbers red" data-value="8">8</button>
+            <button class="numbers red" data-value="9">9</button>
+            <button class="operations yellow" data-value="*">*</button>
+            <button class="numbers red" data-value="4">4</button>
+            <button class="numbers red" data-value="5">5</button>
+            <button class="numbers red" data-value="6">6</button>
+            <button class="operations yellow" data-value="-">-</button>
+            <button class="numbers red" data-value="1">1</button>
+            <button class="numbers red" data-value="2">2</button>
+            <button class="numbers red" data-value="3">3</button>
+            <button class="operations yellow" data-value="+">+</button>
+            <button class="numbers red zero" data-value="0">0</button>
+            <button class="numbers red" data-value=".">,</button>
+            <button class="equal yellow" data-value="=">=</button>
+        </div>
+    </div>
+    <script src="../Calculadora/assets/js/script.js"></script>
+</body>
+</html>
