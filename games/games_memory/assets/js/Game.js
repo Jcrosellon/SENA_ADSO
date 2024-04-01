@@ -79,7 +79,12 @@ class Game{
 
       for (let i = 0; i < getNewArray.length; i++) {
         this.totalPointGame += getNewArray[i].valor;
-        cardsAux += '<div class="col-' + this.longBootstrap + ' pt-2 mx-auto ' + this.contCardClass + '"><div class="card" ><img data-value="' + getNewArray[i].valor + '" data-src="' + this.pathImg + getNewArray[i].img + '" src="' + this.pathImgDafault + '" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">' + getNewArray[i].nombre + '</h5><p class="card-text">' + getNewArray[i].valor + '</p></div></div></div>';
+        cardsAux += `<div class="col-${this.longBootstrap} pt-2 mx-auto ${this.contCardClass}">
+        <div class="card">
+            <img data-value="${getNewArray[i].valor}" data-name="${getNewArray[i].nombre}" data-src="${this.pathImg}${getNewArray[i].img}" src="${this.pathImgDafault}" class="card-img-top" alt="...">
+        </div>
+    </div>`;
+
         cont++;
         if (row == cont - 1) {
           cards += '<div class="row">' + cardsAux + '</div>';
