@@ -14,7 +14,7 @@ document.getElementById('FormUser').addEventListener('submit', function (event) 
 
     setDataStorage(archivoJSON);
  
-    alert(`BIENVENIEDO ${getInput.value.toUpperCase()}`);
+    alert(`BIENVENIDO ${getInput.value.toUpperCase()}`);
   
   setLocation('../../games.html?username='+getInput.value.toUpperCase()+'&points=0');
   event.preventDefault();

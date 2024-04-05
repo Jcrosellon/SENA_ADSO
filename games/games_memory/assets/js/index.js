@@ -90,6 +90,10 @@ document.getElementById(objForm).addEventListener('submit', function (event) {
   event.preventDefault();
 })
 
+/**
+ * The function `getDataUser` checks if there is data in the localStorage and then calls
+ * `setCreateSelect` with the data retrieved from `storageGame.getStorage()`.
+ */
 function getDataUser() {
   if (localStorage.length != 0) {
     setCreateSelect(storageGame.getStorage());

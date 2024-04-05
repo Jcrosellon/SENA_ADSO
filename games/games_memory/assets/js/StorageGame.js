@@ -1,5 +1,3 @@
-//let objUser= '{"'+modelStorage+'":["user":"'+getData+'","points":"0"]}';
-
 class StorageGame{
 
     constructor(model){

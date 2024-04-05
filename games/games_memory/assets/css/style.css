@@ -6,6 +6,9 @@
 body {
     background-color: #300300; /* Rojo oscuro */
     color: #ffffff; /* Texto blanco para contrastar */
+    font-family: honk;
+    font-size: large;
+    text-transform: uppercase !important;
 }
 
 .titleGames{
@@ -42,10 +45,21 @@ select {
     background-color: #300300;
 }
 
-.card .card-body * {
-  color: black; /* Puedes cambiar "black" por otro color que prefieras */
+.container-actions{
+  width: 100%;
+  position: fixed;
+  z-index: 200;
+  background: rgba(43, 41, 41, 0.34);
+  bottom: 0;
+  top: 0;
+  display: none;
 }
 
-.contCard {
-    cursor: pointer;
+.container-actions div{
+  text-align: center;
+  width: 200px;
+  top: 25%;
+  position: adsolute;
+  left: 42%;
+  cursor: pointer;
 }
