@@ -54,6 +54,11 @@ clearChronometer() {
 
 }
 
+stopChronometer() {
+    clearInterval(this.intervalID);
+}
+
+
 getSeconds() {
     return this.seconds;
 }
