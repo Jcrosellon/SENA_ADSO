@@ -1,5 +1,5 @@
 function getDataJson(){
-    var url = "https://firebasestorage.googleapis.com/v0/b/dev-fortress-296821.appspot.com/o/dataText.json?alt=media&token=eadfc6ad-c12d-4c34-914a-2eabaedf4d00";
+    var url = "https://api-restt-default-rtdb.firebaseio.com/api/users";
    // var url = "https://www.sinapsissoft.com/sena/dataText.json";
 var data = { username: "example" };
 fetch(url, {
